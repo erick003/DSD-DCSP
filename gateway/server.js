@@ -6,17 +6,15 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// Defina as rotas do Gateway de API
-app.get('/api/:resource', async (req, res) => {
-  const resource = req.params.resource;
-  const response = await axios.get(`https://exemplo.com/api/${resource}`);
+app.post('/api/realizar-luta/', async (req, res) => {
+  const data = req.body;
+  const response = await axios.post('http://localhost:8000/api/boxeadores/realizar-luta/', data);
   res.send(response.data);
 });
 
-app.post('/api/:resource', async (req, res) => {
+app.get('/api/:resource/', async (req, res) => {
   const resource = req.params.resource;
-  const data = req.body;
-  const response = await axios.post(`https://erick003-fictional-acorn-qgr6vvp4vjv396qq-8000.preview.app.github.dev/api/${resource}`, data);
+  const response = await axios.get(`http://localhost:8000/api/${resource}/`);
   res.send(response.data);
 });
 

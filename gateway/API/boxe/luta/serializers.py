@@ -4,9 +4,9 @@ from .models import Boxeador, Luta
 class BoxeadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Boxeador
-        fields = '_all_'
+        fields = '__all__'
 
 class LutaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Luta
-        fields = '_all_'
+        fields = '__all__'
